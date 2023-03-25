@@ -14,6 +14,10 @@ namespace TexEdit.UI.Views {
     public partial class EditorWindow : Window {
         public EditorWindow() {
             InitializeComponent();
+
+            // default window size
+            // TODO: get from config that is saved on window close (so that size persists)
+            ClientSize = new Avalonia.Size(1280, 720);
         }
     }
 }

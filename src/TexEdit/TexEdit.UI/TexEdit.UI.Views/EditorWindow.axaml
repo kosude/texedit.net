@@ -4,11 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        x:Class="TexEdit.UI.Views.EditorWindow">
+        x:Class="TexEdit.UI.Views.EditorWindow"
+        x:Name="EditorWindowInstance">
 
     <Design.DataContext>
         <vm:EditorWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <DockPanel LastChildFill="False">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Quit" Command="{Binding FileQuitCommand}" CommandParameter="{Binding ElementName=EditorWindowInstance}"/>
+            </MenuItem>
+        </Menu>
+    </DockPanel>
 </Window>
