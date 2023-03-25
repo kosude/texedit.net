@@ -1,0 +1,7 @@
+# build output
+obj/
+bin/
+publish/
+
+# editor-specific config files
+.vscode/
