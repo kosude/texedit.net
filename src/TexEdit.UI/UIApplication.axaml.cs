@@ -36,5 +36,19 @@ namespace TexEdit.UI {
 
             base.OnFrameworkInitializationCompleted();
         }
+
+        /// <summary>
+        /// Quit the entire process
+        /// </summary>
+        public static void Quit() {
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+                desktop.MainWindow.Close();
+                return;
+            }
+
+            // if for whatever reason the main window couldnt be accessed from the application lifetime then we just exit the process
+            // this is less graceful but it is better than nothing.
+            Environment.Exit(0);
+        }
     }
 }

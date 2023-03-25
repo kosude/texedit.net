@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TexEdit.UI.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="TexEdit.UI.Views.AboutDialogueWindow"
+        x:Name="AboutDialogueWindowInstance"
+        Title="About TexEdit"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="25" FontWeight="Bold" HorizontalAlignment="Center">TexEdit</TextBlock>
+        <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Center">Version dev-v0.1.0</TextBlock>
+
+        <TextBlock Margin="0, 8, 0, 0" FontSize="12" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center">
+            Integrated editor and viewer for
+            LaTeX documents
+        </TextBlock>
+
+        <Separator Height="50"></Separator>
+
+        <TextBlock FontSize="11" HorizontalAlignment="Center">(c) 2023 Jack Bennett</TextBlock>
+        <TextBlock FontSize="11" HorizontalAlignment="Center">Not affiliated with the LaTeX Project</TextBlock>
+    </StackPanel>
+</Window>

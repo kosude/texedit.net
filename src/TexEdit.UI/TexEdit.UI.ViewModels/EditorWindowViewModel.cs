@@ -6,10 +6,11 @@
  */
 
 using System.Reactive;
-
-using Avalonia.Controls;
+using System.Reactive.Linq;
 
 using ReactiveUI;
+
+using TexEdit.Utils;
 
 namespace TexEdit.UI.ViewModels {
     /// <summary>
@@ -18,15 +19,32 @@ namespace TexEdit.UI.ViewModels {
     public class EditorWindowViewModel : ViewModelBase {
         // Menu item commands for bindings
         //
-        public ReactiveCommand<Window, Unit> FileQuitCommand { get; }
+        public ReactiveCommand<Unit, Unit> FileQuitCommand { get; }                 // Quit the application
+
+        public ReactiveCommand<Unit, bool> HelpGitRepositoryCommand { get; }        // Open the GH repo
+        public ReactiveCommand<Unit, Unit> HelpAboutCommand { get; }                // Show about-texedit dialogue
+
+        /// <summary>
+        /// Interaction to show the about dialogue window
+        /// </summary>
+        public Interaction<AboutDialogueViewModel, Unit> ShowAboutDialogue { get; }
 
         /// <summary>
         /// Construct and initialise the editor view model
         /// </summary>
         public EditorWindowViewModel() {
-            // set up menu bar
+            // about-dialogue interaction
+            ShowAboutDialogue = new Interaction<AboutDialogueViewModel, Unit>();
 
-            FileQuitCommand = ReactiveCommand.Create<Window>((window) => window?.Close());
+            // set up menu bar commands...
+
+            FileQuitCommand = ReactiveCommand.Create(() => UIApplication.Quit());
+
+            HelpGitRepositoryCommand = ReactiveCommand.Create(() => Browser.OpenGitRepositoryWebPage());
+            HelpAboutCommand = ReactiveCommand.CreateFromTask(async () => {
+                AboutDialogueViewModel aboutDialogue = new AboutDialogueViewModel();
+                Unit result = await ShowAboutDialogue.Handle(aboutDialogue);
+            });
         }
     }
 }

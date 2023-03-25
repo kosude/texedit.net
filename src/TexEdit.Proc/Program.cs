@@ -9,11 +9,14 @@ using Avalonia;
 using Avalonia.ReactiveUI;
 
 using TexEdit.UI;
+using TexEdit.Utils;
 
 namespace TexEdit.Proc {
     public class Program {
         [STAThread]
         public static void Main(string[] args) {
+            Debug.Notification("Starting TexEdit process...");
+
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
         }
 

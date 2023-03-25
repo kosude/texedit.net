@@ -14,7 +14,13 @@
     <DockPanel LastChildFill="False">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_Quit" Command="{Binding FileQuitCommand}" CommandParameter="{Binding ElementName=EditorWindowInstance}"/>
+                <MenuItem Header="_Quit" Command="{Binding FileQuitCommand}"/>
+            </MenuItem>
+
+            <MenuItem Header="_Help">
+                <MenuItem Header="Git _repository..." Command="{Binding HelpGitRepositoryCommand}"/>
+                <Separator/>
+                <MenuItem Header="_About TexEdit..." Command="{Binding HelpAboutCommand}"/>
             </MenuItem>
         </Menu>
     </DockPanel>
