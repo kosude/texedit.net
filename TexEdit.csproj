@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+
+        <OutputType>Exe</OutputType>
+
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+        <NoWarn>CS2002</NoWarn>
+
+	    <TrimMode>copyused</TrimMode>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="**/*.cs"></Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmableAssembly Include="Avalonia.Themes.Fluent"/>
+        <TrimmableAssembly Include="Avalonia.Themes.Default"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.10.19"/>
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.19"/>
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.19"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.19"/>
+        <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4"/>
+    </ItemGroup>
+</Project>
