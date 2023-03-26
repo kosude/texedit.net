@@ -20,8 +20,8 @@
 
             <MenuItem Header="_Help">
                 <MenuItem Header="Git _repository..." Command="{Binding HelpGitRepositoryCommand}"/>
-                <Separator/>
                 <MenuItem Header="View _licence..." Command="{Binding HelpLicenceCommand}"/>
+                <Separator/>
                 <MenuItem Header="_About TexEdit..." Command="{Binding HelpAboutCommand}"/>
             </MenuItem>
         </Menu>
