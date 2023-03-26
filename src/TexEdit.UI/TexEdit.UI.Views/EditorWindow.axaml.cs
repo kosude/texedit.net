@@ -7,6 +7,7 @@
 
 using System.Reactive;
 
+using Avalonia.Controls;
 using Avalonia.ReactiveUI;
 
 using ReactiveUI;
@@ -28,15 +29,22 @@ namespace TexEdit.UI.Views {
             // TODO: get from config that is saved on window close (so that size persists)
             ClientSize = new Avalonia.Size(1280, 720);
 
-            this.WhenActivated(d => d(ViewModel!.ShowAboutDialogue.RegisterHandler(_DoShowAboutDialogueAsync)));
+            this.WhenActivated(d => {
+                d(ViewModel!.ShowAboutDialogue.RegisterHandler(_DoShowDialogueAsync<AboutDialogueWindow, AboutDialogueViewModel>));
+            });
         }
 
         /// <summary>
-        /// Create and show the about-texedit dialogue
+        /// Create and show the specified dialogue object
         /// </summary>
         /// <param name="interaction">Interaction context containing the about dialogue view model</param>
-        private async Task _DoShowAboutDialogueAsync(InteractionContext<AboutDialogueViewModel, Unit> interaction) {
-            AboutDialogueWindow dialogue = new AboutDialogueWindow();
+        /// <typeparam name="V">Dialogue object view type</typeparam>
+        /// <typeparam name="VM">Dialogue object view model type</typeparam>
+        private async Task _DoShowDialogueAsync<V, VM>(InteractionContext<VM, Unit> interaction)
+            where V : Window, new()
+            where VM : ViewModelBase
+        {
+            V dialogue = new V();
             dialogue.DataContext = interaction.Input;
 
             Unit result = await dialogue.ShowDialog<Unit>(this);

@@ -45,5 +45,13 @@ namespace TexEdit.Utils {
         public static bool OpenGitRepositoryWebPage() {
             return OpenWebPage(GitRepositoryURL);
         }
+
+        /// <summary>
+        /// Open the online web-page of the TexEdit git repository (on github) into the LICENCE file.
+        /// </summary>
+        /// <returns>False if there was an error</returns>
+        public static bool OpenLicenceWebPage() {
+            return OpenWebPage($"{GitRepositoryURL}/blob/master/LICENCE");
+        }
     }
 }

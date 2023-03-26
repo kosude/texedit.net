@@ -22,18 +22,16 @@ namespace TexEdit.UI.ViewModels {
         public ReactiveCommand<Unit, Unit> FileQuitCommand { get; }                 // Quit the application
 
         public ReactiveCommand<Unit, bool> HelpGitRepositoryCommand { get; }        // Open the GH repo
+        public ReactiveCommand<Unit, bool> HelpLicenceCommand { get; }              // Show licence dialogue
         public ReactiveCommand<Unit, Unit> HelpAboutCommand { get; }                // Show about-texedit dialogue
 
-        /// <summary>
-        /// Interaction to show the about dialogue window
-        /// </summary>
         public Interaction<AboutDialogueViewModel, Unit> ShowAboutDialogue { get; }
 
         /// <summary>
         /// Construct and initialise the editor view model
         /// </summary>
         public EditorWindowViewModel() {
-            // about-dialogue interaction
+            // dialogue interactions
             ShowAboutDialogue = new Interaction<AboutDialogueViewModel, Unit>();
 
             // set up menu bar commands...
@@ -41,6 +39,7 @@ namespace TexEdit.UI.ViewModels {
             FileQuitCommand = ReactiveCommand.Create(() => UIApplication.Quit());
 
             HelpGitRepositoryCommand = ReactiveCommand.Create(() => Browser.OpenGitRepositoryWebPage());
+            HelpLicenceCommand = ReactiveCommand.Create(() => Browser.OpenLicenceWebPage());
             HelpAboutCommand = ReactiveCommand.CreateFromTask(async () => {
                 AboutDialogueViewModel aboutDialogue = new AboutDialogueViewModel();
                 Unit result = await ShowAboutDialogue.Handle(aboutDialogue);

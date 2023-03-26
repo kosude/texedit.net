@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Class="TexEdit.UI.Views.EditorWindow"
-        x:Name="EditorWindowInstance">
+        x:Name="EditorWindowInstance"
+        Title="TexEdit">
 
     <Design.DataContext>
         <vm:EditorWindowViewModel/>
@@ -20,6 +21,7 @@
             <MenuItem Header="_Help">
                 <MenuItem Header="Git _repository..." Command="{Binding HelpGitRepositoryCommand}"/>
                 <Separator/>
+                <MenuItem Header="View _licence..." Command="{Binding HelpLicenceCommand}"/>
                 <MenuItem Header="_About TexEdit..." Command="{Binding HelpAboutCommand}"/>
             </MenuItem>
         </Menu>
