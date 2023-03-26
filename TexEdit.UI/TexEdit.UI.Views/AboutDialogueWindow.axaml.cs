@@ -17,9 +17,6 @@ namespace TexEdit.UI.Views {
         /// </summary>
         public AboutDialogueWindow() {
             InitializeComponent();
-
-            ClientSize = new Avalonia.Size(280, 360);
-            CanResize = false;
         }
     }
 }

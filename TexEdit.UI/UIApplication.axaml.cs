@@ -50,5 +50,28 @@ namespace TexEdit.UI {
             // this is less graceful but it is better than nothing.
             Environment.Exit(0);
         }
+
+        /// <summary>
+        /// Show about TexEdit dialogue
+        /// </summary>
+        public static void ShowAboutDialogue() {
+            AboutDialogueWindow v = new AboutDialogueWindow();
+
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+                v.ShowDialog(desktop.MainWindow);
+            }
+        }
+
+        /// <summary>
+        /// Show licence dialogue
+        /// </summary>
+        public static void ShowLicenceDialogue() {
+            LicenceDialogueWindow v = new LicenceDialogueWindow();
+            v.DataContext = new LicenceDialogueWindowViewModel();
+
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+                v.ShowDialog(desktop.MainWindow);
+            }
+        }
     }
 }
