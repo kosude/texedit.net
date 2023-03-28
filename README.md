@@ -1,6 +1,6 @@
 <p>
-    <img align=right src="Resources/IconDark.png#gh-light-mode-only" height=80px/>
-    <img align=right src="Resources/IconLight.png#gh-dark-mode-only" height=80px/>
+    <img align=right src="Assets/IconDark.png#gh-light-mode-only" height=80px/>
+    <img align=right src="Assets/IconLight.png#gh-dark-mode-only" height=80px/>
 </p>
 
 
