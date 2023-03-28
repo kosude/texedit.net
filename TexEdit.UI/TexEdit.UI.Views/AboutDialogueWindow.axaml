@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Class="TexEdit.UI.Views.AboutDialogueWindow"
+        Icon="/Assets/Window.png"
         Title="About TexEdit"
         WindowStartupLocation="CenterOwner"
         ClientSize="280, 360"
@@ -24,6 +25,15 @@
                    HorizontalAlignment="Center">
             Version dev-v0.1.0
         </TextBlock>
+
+        <Separator Height="15"/>
+
+        <!-- TODO: bind image source depending on theme (if theme choice available) -->
+        <Image Source="/Assets/IconDark.png"
+                Width="74"
+                Height="74"/>
+
+        <Separator Height="15"/>
 
         <TextBlock Margin="0, 8, 0, 0"
                    FontSize="12"

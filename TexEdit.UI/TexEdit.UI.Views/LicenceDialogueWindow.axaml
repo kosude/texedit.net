@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Class="TexEdit.UI.Views.LicenceDialogueWindow"
+        Icon="/Assets/Window.png"
         Title="TexEdit licence information"
         WindowStartupLocation="CenterOwner"
         Width="650"

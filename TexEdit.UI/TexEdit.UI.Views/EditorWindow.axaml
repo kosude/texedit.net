@@ -6,6 +6,7 @@
         mc:Ignorable="d"
         x:Class="TexEdit.UI.Views.EditorWindow"
         x:Name="EditorWindowInstance"
+        Icon="/Assets/Window.png"
         Title="TexEdit"
         ClientSize="1280, 720">
 
